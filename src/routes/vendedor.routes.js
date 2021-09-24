@@ -1,12 +1,28 @@
-const { Router } = require('express');
+const { Router } = require("express");
 const router = Router();
 
-const { renderVendedorForm, createNewVendedor } = require('../controllers/vendedor.controller');
+const {
+  renderVendedorForm,
+  createNewVendedor,
+  renderVendedores,
+  renderEditForm,
+  updateVendedor,
+  deleteVendedor
+} = require("../controllers/vendedor.controller");
 
-// New Vendedor
-router.get('/vendedor/add', renderVendedorForm);
-router.post('/vendedor/add', createNewVendedor);
+// Nuevo Vendedor
+router.get("/vendedores/add", renderVendedorForm);
+router.post("/vendedores/new-vendedor", createNewVendedor);
 
-// Get all vendedor
+// Obtener todos vendedores
+router.get("/vendedores", renderVendedores);
 
+// Editar vendedor
+router.get("/vendedores/edit/:id", renderEditForm);
+router.put("/vendedores/edit/:id", updateVendedor);
+
+// Eliminar vendedor
+router.delete("/vendedores/delete/:id", deleteVendedor);
+
+// Exportamos el modulo
 module.exports = router;

@@ -1,12 +1,13 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const morgan = require('morgan');
 
 // Inicializaciones
 const app = express();
 
 // Configuraciones
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
@@ -17,6 +18,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 // Middlewares
+app.use(morgan('dev'));
 app.use(express.urlencoded({
     limit: '50mb', ///////// LIMIT for URL ENCODE (image data)
     extended: true
