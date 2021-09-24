@@ -1,10 +1,14 @@
 const vendedorCtrl = {};
 
+const Vendedor = require('../models/Vendedor');
+
 vendedorCtrl.renderVendedorForm = (req, res) => {
-    res.render('/vendedores/add');
+    res.render('vendedores/add-vendedor');
 };
 
 vendedorCtrl.createNewVendedor = (req, res) => {
+    const { title, description } = req.body;
+
     res.send('New Vendedor');
 };
 

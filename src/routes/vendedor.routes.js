@@ -2,17 +2,17 @@ const { Router } = require("express");
 const router = Router();
 
 const {
-  renderVendedorForm,
-  createNewVendedor,
-  renderVendedores,
-  renderEditForm,
-  updateVendedor,
-  deleteVendedor
+    renderVendedorForm,
+    createNewVendedor,
+    renderVendedores,
+    renderEditForm,
+    updateVendedor,
+    deleteVendedor
 } = require("../controllers/vendedor.controller");
 
 // Nuevo Vendedor
 router.get("/vendedores/add", renderVendedorForm);
-router.post("/vendedores/new-vendedor", createNewVendedor);
+router.post("/vendedores/add-vendedor", createNewVendedor);
 
 // Obtener todos vendedores
 router.get("/vendedores", renderVendedores);
